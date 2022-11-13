@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Regist = () => {
-  let history = useNavigate();
+  let history = useHistory();
   const [input, setInput] = useState({
     name: "",
     image_url: "",
@@ -47,13 +47,13 @@ const Regist = () => {
   };
   return (
     <>
-      <div class="flex items-center justify-center min-h-screen bg-gray-100">
-        <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
-          <h3 class="text-2xl font-bold text-center">Join us</h3>
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
+          <h3 className="text-2xl font-bold text-center">Join us</h3>
           <form onSubmit={handleRegist} method="POST">
-            <div class="mt-4">
+            <div className="mt-4">
               <div>
-                <label class="block" for="Name">
+                <label className="block" for="Name">
                   Name
                 </label>
                 <input
@@ -61,11 +61,11 @@ const Regist = () => {
                   type="text"
                   placeholder="Name"
                   name="name"
-                  class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 />
               </div>
-              <div class="mt-4">
-                <label class="block" for="email">
+              <div className="mt-4">
+                <label className="block" for="email">
                   Foto Profile
                 </label>
                 <input
@@ -73,37 +73,37 @@ const Regist = () => {
                   type="text"
                   placeholder="URL Image"
                   name="image_url"
-                  class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 />
               </div>
-              <div class="mt-4">
-                <label class="block">Email</label>
+              <div className="mt-4">
+                <label className="block">Email</label>
                 <input
                   onChange={handleChange}
                   type="text"
                   placeholder="Email"
                   name="email"
-                  class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 />
               </div>
-              <div class="mt-4">
-                <label class="block">Password</label>
+              <div className="mt-4">
+                <label className="block">Password</label>
                 <input
                   onChange={handleChange}
                   type="password"
                   placeholder="Password"
                   name="password"
-                  class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 />
               </div>
-              <div class="flex">
-                <button class="w-full px-6 py-2 mt-4 text-white bg-primary rounded-lg hover:bg-teal-500">
+              <div className="flex">
+                <button className="w-full px-6 py-2 mt-4 text-white bg-primary rounded-lg hover:bg-teal-500">
                   Create Account
                 </button>
               </div>
-              <div class="mt-6 text-grey-dark">
+              <div className="mt-6 text-grey-dark">
                 Already have an account?
-                <a class="text-blue-600 hover:underline" href="/login">
+                <a className="text-blue-600 hover:underline" href="/login">
                   Log in
                 </a>
               </div>

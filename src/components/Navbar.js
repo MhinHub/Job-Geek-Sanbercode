@@ -8,8 +8,8 @@ const Nav = () => {
     <>
       <div>
         <div className="topnav z-100">
-          <a href="">
-            <img src={logoSanbercode} width={70} />
+          <a href="/">
+            <img src={logoSanbercode} width={70} alt={"logo"} />
           </a>
           <a href="/">Home</a>
           {/* <a href="/dashboard/list-job-vacancy">Job List</a> */}

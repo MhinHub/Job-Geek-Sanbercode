@@ -1,12 +1,12 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 
 export const DataJobContext = createContext();
 
 export const DataJobProvider = (props) => {
-  let history = useNavigate();
+  let history = useHistory();
   const [dataJob, setDataJob] = useState([]);
   const [searchStatus, setSearchStatus] = useState(true);
 

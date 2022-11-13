@@ -104,22 +104,22 @@ const JobList = () => {
                       className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
                       key={index}
                     >
-                      <td class="px-6 py-4">{index + 1}</td>
-                      <td class="px-6 py-4">{res.title}</td>
-                      <td class="px-6 py-4">{res.job_description}</td>
-                      <td class="px-6 py-4">{res.job_qualification} </td>
-                      <td class="px-6 py-4">{res.job_type}</td>
-                      <td class="px-6 py-4">{res.job_tenure}</td>
-                      <td class="px-6 py-4">{handleStatus(res.job_status)}</td>
-                      <td class="px-6 py-4">
+                      <td className="px-6 py-4">{index + 1}</td>
+                      <td className="px-6 py-4">{res.title}</td>
+                      <td className="px-6 py-4">{res.job_description}</td>
+                      <td className="px-6 py-4">{res.job_qualification} </td>
+                      <td className="px-6 py-4">{res.job_type}</td>
+                      <td className="px-6 py-4">{res.job_tenure}</td>
+                      <td className="px-6 py-4">{handleStatus(res.job_status)}</td>
+                      <td className="px-6 py-4">
                         {handleSalary(res.salary_min)} -{" "}
                         {handleSalary(res.salary_max)}
                       </td>
 
-                      <td class="px-6 py-4">{res.company_name}</td>
-                      <td class="px-6 py-4">{res.company_city}</td>
+                      <td className="px-6 py-4">{res.company_name}</td>
+                      <td className="px-6 py-4">{res.company_city}</td>
 
-                      <td class="px-6 py-4">
+                      <td className="px-6 py-4">
                         <button
                           onClick={handleEdit}
                           value={res.id}

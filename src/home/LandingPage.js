@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { DataJobContext } from "../context/DataJobContext";
 import JumboTron from "../components/jumbotron";
 
 const LandingPage = () => {
-  let history = useNavigate(); 
+  let history = useHistory();
 
   const { handleFunctions, state } = useContext(DataJobContext);
 
@@ -94,16 +94,16 @@ const LandingPage = () => {
 
   return (
     <>
-      <div className="bg-teal-700 pb-10 mb-20  shadow rounded-lg">
+      <div className="bg-fuchsia-900 pb-10 mb-20  shadow rounded-lg">
         <JumboTron />
       </div>
       <div className=" bg-white p-6 items-center pt-146 pb-28 mt-100 shadow rounded-lg">
         <h2 className="font-bold p-4 items-center text-dark text-3xl mb-2 max-w-md lg:text-3xl ">
           Find Your Jobs
         </h2>
-        <div class="box pt-2 pb-6">
-          <div class="box-wrapper">
-            <div class=" bg-white rounded flex items-center w-1/2 p-3 shadow-sm border border-gray-200">
+        <div className="box pt-2 pb-6">
+          <div className="box-wrapper">
+            <div className=" bg-white rounded flex items-center w-1/2 p-3 shadow-sm border border-gray-200">
               <form method="POST" onSubmit={handleSearch}>
                 <input
                   disabled
@@ -112,27 +112,26 @@ const LandingPage = () => {
                   value={search}
                   placeholder="search for jobs"
                   x-model="q"
-                  class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"
+                  className="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"
                 />
                 {/* <input type="submit" value="Cari" /> */}
               </form>
             </div>
           </div>
         </div>
-        {dataJob !== undefined && (
+        {dataJob !== undefined ? (
           <>
-            <div class=" cursor-pointer pt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 relative">
+            <div className=" cursor-pointer pt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 relative">
               {dataJob.map((res, index) => {
                 return (
-                  <>
-                    <section id="JobCard">
-                      <div
+                    <section id="JobCard" key={index}>
+                    <div
                         value={res.id}
                         onClick={handleShow}
-                        class=" cursor-pointer flex flex-col items-center justify-center bg-white p-4 shadow rounded-lg"
+                        className=" cursor-pointer flex flex-col items-center justify-center bg-fuchsia-500 p-4 shadow rounded-lg"
                       >
                         <h2
-                          class="mt-4 font-bold text-xl cursor-pointer"
+                          className="mt-4 font-bold text-xl cursor-pointer"
                           value={res.id}
                           onClick={handleShow}
                         >
@@ -141,7 +140,7 @@ const LandingPage = () => {
                         <h6
                           value={res.id}
                           onClick={handleShow}
-                          class="mt-2 text-sm font-medium cursor-pointer"
+                          className="mt-2 text-sm font-medium cursor-pointer"
                         >
                           {res.company_name} ({res.company_city})
                         </h6>
@@ -149,27 +148,28 @@ const LandingPage = () => {
                         <div
                           value={res.id}
                           onClick={handleShow}
-                          class=" cursor-pointer inline-flex shadow-lg border border-gray-200 rounded-full overflow-hidden h-40 w-40"
+                          className=" cursor-pointer inline-flex rounded-full overflow-hidden h-40 w-40"
                         >
                           <img
                             value={res.id}
                             onClick={handleShow}
                             src={res.company_image_url}
                             alt=""
-                            class="h-full w-full"
+                            className="h-full w-full"
                           />
                         </div>
                         <h6
                           value={res.id}
                           onClick={handleShow}
-                          class="mt-2 text-sm font-medium"
+                          className="mt-2 text-sm font-medium"
                         >
                           qualification :
                         </h6>
+                        <div className="flex-col flex">
                         <p
                           value={res.id}
                           onClick={handleShow}
-                          class="text-xs text-gray-500 text-center mt-3"
+                          className="text-xs text-gray-800 mt-3"
                         >
                           {res.job_qualification}
                         </p>
@@ -177,18 +177,21 @@ const LandingPage = () => {
                         <p
                           value={res.id}
                           onClick={handleShow}
-                          class="text-xs text-gray-500 text-center mt-3"
+                          className="text-xs text-gray-800 mt-3"
                         >
                           {res.job_description}
-                        </p>
+                          </p>
+                          </div>
                       </div>
                     </section>
-                  </>
                 );
               })}
             </div>
           </>
-        )}
+        ) : (
+            <h1 className="text-center text-2xl font-bold italic">Terjadi Kesalahan pada saat mengambil data</h1>
+        )
+      }
       </div>
     </>
   );

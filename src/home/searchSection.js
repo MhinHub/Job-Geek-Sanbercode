@@ -21,7 +21,6 @@ const SearchSection = () => {
   const [searchData, setSearchData] = useState([]);
 
   useEffect(() => {
-    /////////////////////
     const fetchSearch = async () => {
       let result = await axios.get(
         `https://dev-example.sanbercloud.com/api/job-vacancy`
